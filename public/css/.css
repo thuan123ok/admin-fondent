@@ -1,0 +1,35 @@
+.search-box-wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.search-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #337ab7;
+}
+
+.search-btn {
+  border-radius: 0 4px 4px 0;
+  padding: 8px 12px;
+}

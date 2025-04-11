@@ -1,25 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import Footer from "./shared/components/Layout/footer";
+import Header from "./shared/components/Layout/header";
+import Sidebar from "./shared/components/Layout/sidebar";
 
-function App() {
+import AddCategories from "./pages/AddCategories";
+import Categories from "./pages/Categories";
+import EditCategories from "./pages/EditCategories";
+import Users from "./pages/Users";
+import AddUsers from "./pages/AddUsers";
+import EditUsers from "./pages/EditUsers";
+import Products from "./pages/Products";
+import AddProducts from "./pages/AddProducts";
+import EditProducts from "./pages/EditProducts";
+
+import Login from "./pages/Login";
+import Admin from "./pages/AdminHome";
+
+const AppContent = () => {
+  const location = useLocation();
+
+  const isLoginPage = location.pathname === "/login";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {!isLoginPage && <Header />}
+      <div className="container-fluid">
+        <div className="row">
+          {!isLoginPage && <Sidebar />}
+          <Routes>
+            <Route path="/" element={<Admin />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/categories/add" element={<AddCategories />} />
+            <Route path="/categories/edit/:id" element={<EditCategories />} />
+
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/add" element={<AddProducts />} />
+            <Route path="/products/edit/:id" element={<EditProducts />} />
+
+            <Route path="/users" element={<Users />} />
+            <Route path="/users/add" element={<AddUsers />} />
+            <Route path="/users/edit/:id" element={<EditUsers />} />
+          </Routes>
+        </div>
+      </div>
+      {!isLoginPage && <Footer />}
+    </>
   );
-}
+};
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+};
 
 export default App;
