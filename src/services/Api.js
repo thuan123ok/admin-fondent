@@ -62,10 +62,14 @@ export const getProductsDelete = (id, data) => {
   return Http.delete(`/products/${id}/delete`, data);
 };
 export const logoutAdmin = (data) => {
-  return Http.post(`/admin/login`, data);
+  return Http.post(`/admin/logout`, data, {
+    headers: {
+      Authorization: `Bearer ${data}`,
+    },
+  });
 };
 export const loginAdmin = (data) => {
-  return Http.post(`/admin/logout`, data);
+  return Http.post(`/admin/login`, data);
 };
 export const getRefreshToken = (data) => {
   return Http.post(`/auths/refreshtoken`, data);

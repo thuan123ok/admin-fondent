@@ -108,6 +108,11 @@ h4 {
   box-shadow: inset 0px 0px 0px 1px #30a5ff;
 }
 
+.navbar-header-custom {
+  display: flex;
+  justify-content: space-between;
+}
+
 .navbar-header .navbar-brand {
   color: #fff;
   font-size: 16px;
@@ -555,7 +560,6 @@ a.bg-danger:hover {
   display: inline-block;
   margin-top: 14px;
   margin-right: 10px;
-  float: right;
   list-style: none;
   padding: 0;
 }
