@@ -31,7 +31,7 @@ const Login = () => {
       });
 
       if (response.data.accessToken) {
-        setCookie("accessToken", response.data.accessToken, 0.2);
+        setCookie("accessToken", response.data.accessToken, 0.5);
         login(response.data.accessToken);
         navigate("/");
       }
